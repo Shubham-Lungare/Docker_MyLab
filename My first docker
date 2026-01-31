@@ -1,0 +1,11 @@
+A. INSTALL DOCKER :
+
+1.sudo apt update
+2.sudo apt install docker.io -y
+
+B. Grant Access and Start Docker :
+
+1.sudo usermod -aG docker ubuntu
+2.sudo systemctl status docker
+3.sudo systemctl start docker
+4.docker run hello-world
