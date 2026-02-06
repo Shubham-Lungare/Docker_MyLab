@@ -1,0 +1,12 @@
+Docker Volumes and Mounts:
+
+1.docker volume create Shubham
+2.docker volume ls
+3.docker volume inspect Shubham
+4.docker volume rm Shubham // to remove volume
+5.docker images // list images
+6.docker images | head -5 // list top 5
+7.docker run -d --mount source=Shubham,target=/app dockervolume:latest    //-d detach mode    // dockervolume or nginx:latest
+8.docker ps // list of running containers.
+9.docker inspect container_id  // all details of container.
+10.stop the container first then delete the volume as it is in use.
