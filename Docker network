@@ -1,0 +1,23 @@
+Docker Networking | Bridge vs Host vs Overlay and custom bridge networks: 
+
+1. Create two containers using bridge network and third isolated using custon bridge network.
+2. C1 and C2 can communicate but they can not to C3 as that is on secure another network.
+
+a. Create C1 : docker run -d --name login nginx:latest
+-Login : docker exec -it login /bin/bash
+-install ping : apt-get install iputils-ping -y
+-check status : ping -v
+
+b. Create C2 : docker run -d --name logout nginx:latest
+-Check : docker ps
+-Check IP's : docker inspect login/logout
+-List networks : docker network ls
+-Ping C1 to C2 : ping C1 ip.  // can ping 
+
+c. Create C3 : docker run -d --name finance --network=secure-network nginx:latest
+-Get IP : docker inspect finance
+-check ping and it will not connect to C1 and C2 as C3 is in secure custom NW.
+
+d. Create C4 on host NW:
+-docker run -d --name host-demo --network=host nginx:latest
+-Check inspect : docker inspect host   // will not show ip as it is on host same network
